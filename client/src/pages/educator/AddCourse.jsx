@@ -1,11 +1,7 @@
 import React from 'react'
 
 const AddCourse = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>Add Course</div>;
 }
 
 export default AddCourse

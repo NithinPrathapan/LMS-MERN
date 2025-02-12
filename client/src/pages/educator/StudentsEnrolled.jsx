@@ -1,11 +1,7 @@
 import React from 'react'
 
 const StudentsEnrolled = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>Students Enrolled</div>;
 }
 
 export default StudentsEnrolled
