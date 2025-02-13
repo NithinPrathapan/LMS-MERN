@@ -24,28 +24,47 @@ const Navbar = () => {
         />
       </Link>
       <div className="hidden md:flex items-center gap-5 text-gray-500">
-        <div className="flex items-center justify-center gap-4">
-          <button>Become Educator</button>
-          <Link to="/my-enrollments">My-Enrollments</Link>
-        </div>
+        {user ? (
+          <div className="flex items-center justify-center gap-4">
+            <button>Become Educator</button>
+            <Link to="/my-enrollments">My-Enrollments</Link>
+          </div>
+        ) : (
+          <></>
+        )}
         <div>
-          <button
-            onClick={() => openSignIn()}
-            className="bg-blue-500 text-white rounded-full px-5 py-2"
-          >
-            Create Account
-          </button>
+          {user ? (
+            <UserButton />
+          ) : (
+            <button
+              onClick={() => openSignIn()}
+              className="bg-blue-500 text-white rounded-full px-5 py-2"
+            >
+              Create Account
+            </button>
+          )}
         </div>
       </div>
       {/* for phone screens */}
       <div className="md:hidden flex items-center gap-2 sm:gap-5 text-gray-500">
-        <div>
-          <button>Become Educator</button>
-          <Link to="/my-enrollments">My-Enrollments</Link>
+        <div className="flex items-center justify-center  max-sm:text-xs gap-1 sm:gap-2">
+          {user ? (
+            <>
+              <button>Become Educator</button>
+              <Link to="/my-enrollments">My-Enrollments</Link>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
-        <button>
-          <img src={assets.user_icon} alt="user_icon" />
-        </button>
+
+        {user ? (
+          <UserButton />
+        ) : (
+          <button onClick={() => openSignIn()}>
+            <img src={assets.user_icon} alt="user_icon" />
+          </button>
+        )}
       </div>
     </div>
   );

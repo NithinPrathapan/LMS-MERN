@@ -17,19 +17,21 @@ const App = () => {
   return (
     <div className="bg-black text-white min-h-screen">
       {!isEducatorPath && <Navbar />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/course-list" element={<CourseList />} />
-        <Route path="/course/:id" element={<CourseDetails />} />
-        <Route path="/my-enrollments" element={<MyEnrollments />} />
-        <Route path="/player/:id" element={<Player />} />
-        <Route path="/loading/:path" element={<Loading />} />
-        <Route path="/educator" element={<Educator />}>
-          <Route path="educator" element={<Dashboard />} />
-          <Route path="my-courses" element={<MyCourses />} />
-          <Route path="students-enrolled" element={<StudentsEnrolled />} />
-        </Route>
-      </Routes>
+      <div className="max-w-[80%] mx-auto my-12">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/course-list" element={<CourseList />} />
+          <Route path="/course/:id" element={<CourseDetails />} />
+          <Route path="/my-enrollments" element={<MyEnrollments />} />
+          <Route path="/player/:id" element={<Player />} />
+          <Route path="/loading/:path" element={<Loading />} />
+          <Route path="/educator" element={<Educator />}>
+            <Route path="educator" element={<Dashboard />} />
+            <Route path="my-courses" element={<MyCourses />} />
+            <Route path="students-enrolled" element={<StudentsEnrolled />} />
+          </Route>
+        </Routes>
+      </div>
     </div>
   );
 };
