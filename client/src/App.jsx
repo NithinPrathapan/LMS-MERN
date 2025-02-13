@@ -15,9 +15,8 @@ import Navbar from "./components/student/Navbar";
 const App = () => {
   const isEducatorPath=useMatch('/educator/*')
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="min-h-screen">
       {!isEducatorPath && <Navbar />}
-      <div className="max-w-[80%] mx-auto my-12">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/course-list" element={<CourseList />} />
@@ -31,7 +30,6 @@ const App = () => {
             <Route path="students-enrolled" element={<StudentsEnrolled />} />
           </Route>
         </Routes>
-      </div>
     </div>
   );
 };
