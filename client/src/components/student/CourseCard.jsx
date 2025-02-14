@@ -1,27 +1,34 @@
 import React, { useContext } from "react";
-import { assets } from "../../assets/assets/assets";
+import { assets } from "../../assets/assets";
+import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 
-const CourseCard = ({ courseDetails }) => {
-  const { currency } = useContext(useContext);
+const CourseCard = ({ course }) => {
+  const { currency, calculateRating } = useContext(AppContext);
   return (
-    <div>
-      <img src={course.courseThumbnail} alt="thumbnail" />
-      <div>
-        <h3>{course.courseTitle}</h3>
-        <p>{course.educator.name}</p>
+    <div className="border  border-gray-500/30 pb-6 overflow-hidden rounded-lg">
+      <Link
+        className=""
+        to={"/course/" + course._id}
+        onClick={() => scrollTo(0, 0)}
+      >
+        <img className="w-full " src={course.courseThumbnail} alt="thumbnail" />
+      </Link>
+      <div className="p-3 text-left font-semibold ">
+        <h3 className="text-base"> {course.courseTitle}</h3>
+        <p className="text-gray-500">{course.educator.name}</p>
       </div>
-      <div>
-        <p>4.5</p>
-        <div>
+      <div className="flex items-center space-x-2 px-3">
+        <p>{calculateRating(course)}</p>
+        <div className="flex">
           {[...Array(5)].map((_, i) => (
-            <img key={i} src={assets.star} alt="star" />
+            <img className="w-3.5 h-3.5" key={i} src={assets.star} alt="star" />
           ))}
         </div>
-        <p>22</p>
+        <p className="text-gray-500">22</p>
       </div>
-      <p>
-        {currency}
-        {(course.coursePrice - course.discount / 100).toFixed(2)}
+      <p className="text-base font-semibold text-gray-500 px-3">
+        {currency} {(course.coursePrice - course.discount / 100).toFixed(2)}
       </p>
     </div>
   );

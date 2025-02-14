@@ -1,13 +1,13 @@
-import React from 'react'
-import {assets } from  '../../assets/assets/assets.js'
-import { Link } from 'react-router-dom';
+import React, { useContext } from "react";
+import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { AppContext } from "../../context/AppContext";
 
 const Navbar = () => {
-
   const isCourseListPage = location.pathname.includes("/course-list");
 
-
+  const { navigate } = useContext(AppContext);
   const { openSignIn } = useClerk();
   const { user } = useUser();
   return (
@@ -18,6 +18,7 @@ const Navbar = () => {
     >
       <Link to="/">
         <img
+          onClick={() => navigate("/")}
           src={assets.logo}
           alt="logo"
           className="w-28 lg:w-32 cursor-pointer"
@@ -68,6 +69,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
