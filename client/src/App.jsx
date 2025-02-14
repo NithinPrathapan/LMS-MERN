@@ -13,7 +13,7 @@ import StudentsEnrolled from "./pages/educator/StudentsEnrolled";
 import Navbar from "./components/student/Navbar";
 
 const App = () => {
-  const isEducatorPath=useMatch('/educator/*')
+  const isEducatorPath = useMatch("/educator/*");
   return (
     <div className="min-h-screen">
       {!isEducatorPath && <Navbar />}

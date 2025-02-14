@@ -1,12 +1,14 @@
 import React from "react";
 import Hero from "../../components/student/Hero";
-import SearchBar from "../../components/student/SearchBar";
+import Companies from "../../components/student/Companies";
+import CourseSection from "../../components/student/CourseSection";
 
 function Home() {
   return (
-    <div className="text-white">
+    <div className="flex flex-col items-center space-y-7">
       <Hero />
-      <SearchBar />
+      <Companies />
+      <CourseSection />
     </div>
   );
 }
