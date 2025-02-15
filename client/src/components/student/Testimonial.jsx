@@ -9,7 +9,7 @@ const Testimonial = () => {
         Hear from the learners as they share their journeys of transformation,
         success and how our <br /> platform has made a diffrence in their lives
       </p>
-      <div className="flex items-center justify-center  gap-4  max-w-7xl mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  items-center justify-center  gap-4  md:max-w-7xl w-[80%] mx-auto mt-12">
         {dummyTestimonial.map((testimonial, index) => {
           return (
             <div

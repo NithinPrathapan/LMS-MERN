@@ -3,6 +3,8 @@ import Hero from "../../components/student/Hero";
 import Companies from "../../components/student/Companies";
 import CourseSection from "../../components/student/CourseSection";
 import Testimonial from "../../components/student/Testimonial";
+import CallToAction from "../../components/student/CallToAction";
+import Footer from "../../components/student/Footer";
 
 function Home() {
   return (
@@ -11,6 +13,8 @@ function Home() {
       <Companies />
       <CourseSection />
       <Testimonial />
+      <CallToAction />
+      <Footer />
     </div>
   );
 }
