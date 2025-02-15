@@ -16,14 +16,14 @@ const AppProvider = ({ children }) => {
   }, []);
 
   const calculateRating = (course) => {
-    if (course.courseRating.length === 0) {
+    if (course.courseRatings.length === 0) {
       return 0;
     }
     let totalRating = 0;
-    course.courseRating.forEach((rating) => {
+    course.courseRatings.forEach((rating) => {
       totalRating += rating.rating;
     });
-    return totalRating / course.courseRating.length;
+    return totalRating / course.courseRatings.length;
   };
   const value = {
     currency,

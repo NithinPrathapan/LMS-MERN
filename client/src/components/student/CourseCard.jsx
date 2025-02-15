@@ -19,13 +19,22 @@ const CourseCard = ({ course }) => {
         <p className="text-gray-500">{course.educator.name}</p>
       </div>
       <div className="flex items-center space-x-2 px-3">
-        <p>{calculateRating(course)}</p>
+        <p>{calculateRating(course).toFixed(1)}</p>
         <div className="flex">
           {[...Array(5)].map((_, i) => (
-            <img className="w-3.5 h-3.5" key={i} src={assets.star} alt="star" />
+            <img
+              className="w-3.5 h-3.5"
+              key={i}
+              src={
+                i < Math.floor(calculateRating(course))
+                  ? assets.star
+                  : assets.star_blank
+              }
+              alt="star"
+            />
           ))}
         </div>
-        <p className="text-gray-500">22</p>
+        <p>{course.courseRatings.length}</p>
       </div>
       <p className="text-base font-semibold text-gray-500 px-3">
         {currency} {(course.coursePrice - course.discount / 100).toFixed(2)}
