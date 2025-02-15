@@ -1,4 +1,3 @@
-
 import { Route, Routes, useMatch } from "react-router-dom";
 import Home from "./pages/student/Home";
 import CourseList from "./pages/student/CourseList";
@@ -17,19 +16,19 @@ const App = () => {
   return (
     <div className="min-h-screen">
       {!isEducatorPath && <Navbar />}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/course-list" element={<CourseList />} />
-          <Route path="/course/:id" element={<CourseDetails />} />
-          <Route path="/my-enrollments" element={<MyEnrollments />} />
-          <Route path="/player/:id" element={<Player />} />
-          <Route path="/loading/:path" element={<Loading />} />
-          <Route path="/educator" element={<Educator />}>
-            <Route path="educator" element={<Dashboard />} />
-            <Route path="my-courses" element={<MyCourses />} />
-            <Route path="students-enrolled" element={<StudentsEnrolled />} />
-          </Route>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/courselist" element={<CourseList />} />
+        <Route path="/course/:id" element={<CourseDetails />} />
+        <Route path="/my-enrollments" element={<MyEnrollments />} />
+        <Route path="/player/:id" element={<Player />} />
+        <Route path="/loading/:path" element={<Loading />} />
+        <Route path="/educator" element={<Educator />}>
+          <Route path="educator" element={<Dashboard />} />
+          <Route path="my-courses" element={<MyCourses />} />
+          <Route path="students-enrolled" element={<StudentsEnrolled />} />
+        </Route>
+      </Routes>
     </div>
   );
 };

@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { assets } from '../../assets/assets'
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { assets } from "../../assets/assets";
+import { useNavigate } from "react-router-dom";
 
-const SearchBar = ({data}) => {
-    const navigate = useNavigate();
-    const [input, setInput] = useState(data ? data : "");
-    const onSearchHandler = (e)=>{
-      navigate("/course-list/" + input);
-    }
+const SearchBar = ({ data }) => {
+  const navigate = useNavigate();
+  const [input, setInput] = useState(data ? data : "");
+  const onSearchHandler = (e) => {
+    navigate("/course-list/" + input);
+  };
   return (
     <form
       action=""
@@ -33,6 +33,6 @@ const SearchBar = ({data}) => {
       </button>
     </form>
   );
-}
+};
 
-export default SearchBar
+export default SearchBar;
