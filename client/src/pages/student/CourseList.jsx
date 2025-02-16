@@ -3,6 +3,7 @@ import { AppContext } from "../../context/AppContext";
 import SearchBar from "../../components/student/SearchBar";
 import { useParams } from "react-router-dom";
 import CourseCard from "../../components/student/CourseCard";
+import { IoClose } from "react-icons/io5";
 
 const CourseList = () => {
   const { navigate, allCourses } = useContext(AppContext);
@@ -36,8 +37,20 @@ const CourseList = () => {
             </span>{" "}
             / <span>Course List</span>
           </p>
+          {input && (
+          <div className="flex items-center justify-between bg-gray-100 p-4 mt-4 rounded">
+            <span className="text-gray-700">{input}</span>
+            <button
+              className="text-gray-500 hover:text-gray-700"
+              onClick={() => navigate("/course-list")}
+            >
+              <IoClose size={20} />
+            </button>
+          </div>
+        )}
         </div>
         <SearchBar data={input} />
+        
       </div>
       <div className="grid grid-cols-4 gap-4  mt-12 mb-12 max-w-7xl mx-auto">
         {filteredCourse.map((course, index) => {
