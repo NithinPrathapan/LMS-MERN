@@ -6,6 +6,7 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
   const currency = import.meta.env.VITE_CURRENCY;
   const [allCourses, setAllCouress] = useState([]);
+  console.log(allCourses);
   const navigate = useNavigate();
   function fetchAllCourses() {
     setAllCouress(dummyCourses);

@@ -18,7 +18,7 @@ const App = () => {
       {!isEducatorPath && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/courselist" element={<CourseList />} />
+        <Route path="/course-list/:input?" element={<CourseList />} />
         <Route path="/course/:id" element={<CourseDetails />} />
         <Route path="/my-enrollments" element={<MyEnrollments />} />
         <Route path="/player/:id" element={<Player />} />
