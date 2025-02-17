@@ -6,7 +6,13 @@ import { assets } from "../../assets/assets";
 
 const CourseDetails = () => {
   const { id } = useParams();
-  const { allCourses, calculateRating } = useContext(AppContext);
+  const {
+    allCourses,
+    calculateRating,
+    calculateChapterTime,
+    calculateCourseDuration,
+    calculateTotalLectures,
+  } = useContext(AppContext);
   const [course, setCourse] = useState(null);
 
   useEffect(() => {
@@ -62,7 +68,30 @@ const CourseDetails = () => {
           </p>
         </div>
         <p className="text-sm">Course by Synnefo Solutions</p>
+
+        <div className="pt-8 text-gray-800 ">
+          <h1 className="text-xl font-semibold ">Course Stucture</h1>
+          <div className="pt-5 ">
+            {course.courseContent.map((chapter, index) => {
+              return (
+                <div key={index}>
+                  <div>
+                    <div className="">
+                      <img src={assets.down_arrow_icon} alt="arrow_icon" />
+                      <p>{chapter.chapterTitle}</p>
+                    </div>
+                    <p>
+                      {chapter.chapterContent.length} lectures -{" "}
+                      {calculateChapterTime}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
+
       {/* right section */}
     </div>
   ) : (
